@@ -1,0 +1,38 @@
+color c2 = color(143,29,44);
+color c1 = color(20,10,37);
+int Y_AXIS = 1 ;
+int X_AXIS = 2 ;
+
+class Obstacle{
+  int x,y,w,h;
+  int clr = 0;
+  float middleX,middleY,cat1,cat2,ip;
+  Obstacle(int ox,int oy,int ow, int oh){
+    
+    x=ox;
+    y=oy;
+    w=ow;
+    h=oh;
+    middleX = ox+ow/2;
+    middleY = oy+oh/2;
+    cat1 = oh/2; 
+    cat2 = ow/2;
+    ip = sqrt(pow(cat1,2)+pow(cat2,2));
+  
+  }
+ 
+  void show(){
+    // fill(219,43,48);
+    // noStroke();
+    // rect(x,y,w,h);
+    setGradient(x,y,w,h,c1,c2,Y_AXIS);
+    // fill(255);
+    // ellipse(middleX,middleY,5,5);
+    
+  }
+  void prnt(){
+ // print(cat1);
+ //  print(cat2);
+  print(ip);
+  }
+}

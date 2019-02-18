@@ -29,5 +29,6 @@ class Button{
    if(f == 1) { player.control("right");}
    else if(f==2){player.control("left");}
    else if(f==3){player.jump();}
+   else if (f==4){player.respawn();}
   }
 }

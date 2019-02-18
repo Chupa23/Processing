@@ -3,15 +3,22 @@ int jmp=0;
 
 class Character{
   float x,y,w,h,distance,speed=2*m,accel=1*m,dirSpeed=5*m;
+  
   boolean colision,right=false,left=false,dirCol;
   
   Character(float cx,float cy, float cw, float ch){
   x= cx*m;  y=cy*m;  w=cw*m;  h=ch*m;  }
   
   void show(){
+ 
+    //dirSpeed= dirSpeed/m;
    // rect(x,y,w,h);
     image(charImg.get(sw*k,pos*sh,105,120), x-15*m,y+5*m, w*1.3,h);
-    if(frameCount%5 == 0) {   k++;}
+   
+   // print("f="+f+"     " +"5/f="+ dirSpeed/f + "\n");
+    if(frameRate>40){f=5;}
+    else if(frameRate<40){f=3;}
+    if(frameCount%f== 0) {   k++;}
     if (k>7){k=0;}
   }
   
@@ -23,7 +30,8 @@ class Character{
       {   
          if(y+h+speed - obstacles[i].y > speed){
            if( y+speed - obstacles[i].y > speed ){speed = 2*m;}
-           jmp=0;}
+          if(y+speed<obstacles[i].y+obstacles[i].h/2){ jmp=0;}
+           }
          else{
          colision=true;
 
